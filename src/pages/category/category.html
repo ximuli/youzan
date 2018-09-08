@@ -83,7 +83,7 @@
                         </div>
                         <div class="detail">
                           <div class="title">{{ list.name }} 这里是开心的推荐内容，请仔细查看有没有你喜欢的哦！</div>
-                          <div class="price">￥{{ list.price | priceNumber }}</div>
+                          <div class="price">￥{{ list.price | currency }}</div>
                           <div class="recommend">
                             <span>推荐值:</span>
                             <span>{{ list.recommend }}</span>
@@ -144,6 +144,7 @@
                     v-for="list in subData.brandList"
                     :data-item-id="list.id" 
                     :data-item-name="list.name"
+                    @click="toSearch(list)"
                 >
                   <img :src="list.img" :alt="list.name" class="category-img">
                   <span class="category-item-name">
@@ -155,7 +156,9 @@
                 <li class="category-item js-category-item" 
                     v-for="list in subData.categoryList"
                     :data-item-id="list.id" 
-                    :data-item-name="list.name">
+                    :data-item-name="list.name"
+                    @click="toSearch(list)"
+                >
                   <img :src="list.img" :alt="list.name" class="category-img">
                   <span class="category-item-name">
                   {{ list.name }}            </span>
