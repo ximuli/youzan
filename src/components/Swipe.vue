@@ -35,7 +35,7 @@
             }
         },
         created() {
-            console.log(this.lists)
+            
         },
         mounted() {
             new Swiper ('.swiper-container', {
