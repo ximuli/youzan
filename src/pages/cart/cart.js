@@ -8,7 +8,7 @@ import url from 'js/api.js'
 import mixin from 'js/mixin.js'
 import qs from 'qs'
 import Velocity from 'velocity-animate'
-
+import Cart from 'js/cartService.js'
 
 new Vue({
     el: '#app',
@@ -18,7 +18,8 @@ new Vue({
         editingShop: null,
         editingShopIndex: -1,
         removePopUp: false,
-        removeData: null
+        removeData: null,
+        removeMsg: ''
     },
     computed: {
         allSelected: {
@@ -90,7 +91,22 @@ new Vue({
     },
     methods: {
         getList() {
-            axios.post(url.cartLists).then(res => {//这里需要给 good 添加一个属性 checked，要成为响应式数据，需要对原数据进行处理之后再赋值
+            //这里需要给 good 添加一个属性 checked，要成为响应式数据，需要对原数据进行处理之后再赋值
+            // axios.post(url.cartLists).then(res => {
+            //     let lists = res.data.cartList
+            //     lists.forEach(shop => {
+            //         shop.checked = true
+            //         shop.removeChecked = false
+            //         shop.editing = false
+            //         shop.editingMsg = '编辑'
+            //         shop.goodsList.forEach(good => {
+            //             good.checked = true
+            //             good.removeChecked = false
+            //         })
+            //     })
+            //     this.lists = lists
+            // })
+            Cart.getList().then(res => {
                 let lists = res.data.cartList
                 lists.forEach(shop => {
                     shop.checked = true
@@ -137,37 +153,78 @@ new Vue({
         },
         reduce(good) {
             if (good.number === 1) return 
-            axios.post(url.cartReduce, {
-                id: good.id,
-                number: 1
-            }).then(res => {
+            // axios.post(url.cartReduce, {
+            //     id: good.id,
+            //     number: 1
+            // }).then(res => {
+            //     good.number--
+            // })
+            Cart.reduce(good.id).then(res => {
                 good.number--
             })
         },
         add(good) {
-            axios.post(url.cartAdd, {
-                id: good.id,
-                number: 1
-            }).then(res => {
+            // axios.post(url.cartAdd, {
+            //     id: good.id,
+            //     number: 1
+            // }).then(res => {
+            //     good.number++
+            // })
+            Cart.add(good.id).then(res => {
                 good.number++
             })
         },
         remove(shop,shopIndex,good,goodIndex) {
             this.removePopUp = true
             this.removeData = {shop,shopIndex,good,goodIndex}
+            this.removeMsg = '确定要删除该商品吗？'
+        },
+        removeList() {
+            this.removePopUp = true
+            this.removeMsg = `确定将所选 ${this.removeLists.length} 个商品删除？`
         },
         removeConfirm() {
-            let {shop,shopIndex,good,goodIndex} = this.removeData
-            axios.post(url.cartRemove, {
-                id: good.id
-            }).then(res=> {
-                shop.goodsList.splice(goodIndex, 1)
-                if (!shop.goodsList.length) {
-                    this.lists.splice(shopIndex, 1)
-                    this.removeShop()
-                }
-                this.removePopUp = false
-            })
+            if (this.removeMsg === '确定要删除该商品吗？') {
+                let {shop,shopIndex,good,goodIndex} = this.removeData
+                axios.post(url.cartRemove, {
+                    id: good.id
+                }).then(res=> {
+                    shop.goodsList.splice(goodIndex, 1)
+                    if (!shop.goodsList.length) {
+                        this.lists.splice(shopIndex, 1)
+                        this.removeShop()
+                    }
+                    this.removePopUp = false
+                })
+            }
+            else {
+                let ids = []
+                this.removeLists.forEach(good => {
+                    ids.push(good.id)
+                })
+                axios.post(url.cartMrremove, {
+                    ids
+                }).then(res => {
+                    let arr  = []
+                    this.editingShop.goodsList.forEach(good => {
+                        let index = this.removeLists.findIndex(item => {
+                            return item.id === good.id
+                        })
+                        if (index === -1) {
+                            arr.push(good)
+                        }
+                    })
+                    if (arr.length) {
+                        this.editingShop.goodsList = arr
+                    }
+                    else {
+                        this.lists.splice(this.editingShopIndex, 1)
+                        this.removeShop()
+                    }
+                    this.removePopUp = false
+                })
+            }
+            
         },
         removeShop() {
             this.editingShop = null

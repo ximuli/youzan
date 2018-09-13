@@ -145,7 +145,12 @@
                 结算 ({{ selectLists.length }})
               </button>
               <!-- 编辑状态 -->
-              <button href="javascript:;" :disabled="!removeLists.length" class="j-delete-goods btn font-size-14 btn-red" v-show="editingShop">
+              <button href="javascript:;" 
+                      :disabled="!removeLists.length" 
+                      class="j-delete-goods btn font-size-14 btn-red" 
+                      v-show="editingShop"
+                      @click="removeList"
+                      >
                 删除
               </button>
             </div>
@@ -164,10 +169,10 @@
   <!--删除确认-->
   <div class="van-dialog" style="z-index: 2002; width: 270px;" v-show="removePopUp">
     <div class="van-hairline van-dialog__content">
-      <div class="van-dialog__message">确定要删除该商品么?</div>
+      <div class="van-dialog__message">{{removeMsg}}</div>
     </div>
     <div class="van-dialog__footer van-dialog__footer--buttons">
-      <button class="van-button van-button--default van-button--large van-dialog__cancel">
+      <button class="van-button van-button--default van-button--large van-dialog__cancel" @click="removePopUp=false">
         <span class="van-button__text">取消</span>
       </button>
       <button class="van-button van-button--default van-button--large van-dialog__confirm van-hairline--left" @click="removeConfirm">
