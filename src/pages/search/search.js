@@ -18,9 +18,9 @@ new Vue({
         keyword: keyword,
         searchList: null,
         isShow: false,
-        // loading: false,
-        // pageNum: 1,
-        // pageSize: 8,
+        loading: false,
+        pageNum: 1,
+        pageSize: 8,
         // allLoaded: false
     },
     created() {//异步数据请求放到这边来调用
@@ -28,23 +28,22 @@ new Vue({
     },
     methods: {
         getSearchList() {
-            // this.loading = true
+            this.loading = true
             axios.post(url.searchList, {
-                
                 keyword,
-                id
-                // pageNum: this.pageNum,
-                // pageSize: this.pageSize
+                id,
+                pageNum: this.pageNum,
+                pageSize: this.pageSize
             }).then(res => { 
                 let currentList = res.data.lists
-                // if (this.searchList) {
-                //     this.searchList = this.searchList.concat(currentList)
-                // }else {
+                if (this.searchList) {
+                    this.searchList = this.searchList.concat(currentList)
+                }else {
                     //第一次获取数据
                     this.searchList = currentList
-                // }
-                // this.loading = false
-                // this.pageNum++
+                }
+                this.loading = false
+                this.pageNum++
             })
         },
         move() {

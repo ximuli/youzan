@@ -195,6 +195,7 @@ new Vue({
                         this.removeShop()
                     }
                     this.removePopUp = false
+                    // this.$refs[`goods-${shopIndex}-${goodIndex}`][0].style.left = '0px'
                 })
             }
             else {

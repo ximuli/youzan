@@ -51,7 +51,11 @@
     <div class="search-content" style="display: none;"></div>
     <div class="content">
       <div class="search-wrap js-waterfull-wrap">
-        <ul class="js-list">
+        <ul class="js-list" 
+            v-infinite-scroll="getSearchList"
+            infinite-scroll-disabled="loading"
+            infinite-scroll-distance="30"
+        >
           <li class="goods-item"
               v-for="list in searchList"
           >
@@ -70,6 +74,7 @@
             </a>
           </li>
         </ul>
+        <div class="loading-more" v-show="loading"><span></span></div>
         <div class="list-finished">已经没有更多了</div>
       </div>
     </div>

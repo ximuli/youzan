@@ -338,7 +338,9 @@ img {
 }
 
 .content {
-  overflow-y: auto
+  /* overflow-y: auto */
+  /* 这一句样式在引入 mint-ui 的无限滚动组件时，导致刚进入页面就无限发请求，*/
+  /* 删除此样式之后请求恢复正常：只在划到页面底部的时候才会请求并加载新的数据 */
 }
 
 .content,
@@ -1086,7 +1088,7 @@ only screen and (min-device-pixel-ratio:1.5) {
 
 .search-wrap {
   padding: 10px 7px;
-  font-size: 0
+  font-size: 0;
 }
 
 .search-wrap .goods-item {
