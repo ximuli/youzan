@@ -1,4 +1,5 @@
-import './components/address_base.css'
+import './components/member_base.css'
+import './components/member.css'
 
 // 使用 vue-router
 import Vue from 'vue'
@@ -18,10 +19,12 @@ let routes = [{
     },
     {
         path: 'all',
+        name: 'all',
         component: require('./components/all.vue').default,
     },
     {
         path: 'form',
+        name: 'form',
         component: require('./components/form.vue').default,
     }]
 }]
