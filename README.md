@@ -4,7 +4,7 @@
 
 手机预览：
 
-![youzan](.\youzan.jpg)
+![youzan](http://wx3.sinaimg.cn/mw690/d1b5fd6bgy1fvipu4wm64j208c08c0t3.jpg)
 
 关键词：Vue、Vue-Router、Vuex、webpack、vue-cli、ES6
 
