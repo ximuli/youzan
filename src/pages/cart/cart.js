@@ -132,6 +132,7 @@ new Vue({
             let attr  = this.editingShop ? 'removeChecked' : 'checked'
             shop[attr] = !shop[attr]
             shop.goodsList.forEach(good => {
+                console.log(good[attr])
                 good[attr] = shop[attr]
             })
         },
@@ -186,9 +187,10 @@ new Vue({
         removeConfirm() {
             if (this.removeMsg === '确定要删除该商品吗？') {
                 let {shop,shopIndex,good,goodIndex} = this.removeData
-                axios.post(url.cartRemove, {
-                    id: good.id
-                }).then(res=> {
+                // axios.post(url.cartRemove, {
+                //     id: good.id
+                // })
+                Cart.removeConfirm(good.id).then(res=> {
                     shop.goodsList.splice(goodIndex, 1)
                     if (!shop.goodsList.length) {
                         this.lists.splice(shopIndex, 1)
@@ -203,9 +205,10 @@ new Vue({
                 this.removeLists.forEach(good => {
                     ids.push(good.id)
                 })
-                axios.post(url.cartMrremove, {
-                    ids
-                }).then(res => {
+                // axios.post(url.cartMrremove, {
+                //     ids
+                // })
+                Cart.mrremoveConfirm(ids).then(res => {
                     let arr  = []
                     this.editingShop.goodsList.forEach(good => {
                         let index = this.removeLists.findIndex(item => {

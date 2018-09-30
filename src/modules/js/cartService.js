@@ -20,7 +20,17 @@ class Cart {
         return fetch(url.cartLists)
     }
 
-    
+    static removeConfirm (id) {
+        return fetch(url.cartRemove, {
+            id
+        })
+    }
+
+    static mrremoveConfirm (ids) {
+        return fetch(url.cartMrremove, {
+            ids
+        })
+    }
 }
 
 export default Cart
