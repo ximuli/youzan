@@ -2,7 +2,7 @@
 
 ## 效果演示
 
-[点此链接预览](https://blog.guozisha.com/youzan/dist/)  （请用 Chrome 手机模式预览）
+[点此链接预览](http://blog.guozisha.com/youzan/dist/)  （请用 Chrome 手机模式预览）
 
 移动端扫描下方二维码：
 
