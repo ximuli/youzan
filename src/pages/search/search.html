@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js " lang="zh-CN">
-
+<html lang="zh-Hans">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="dns-prefetch" href="https://dn-kdt-img.qbox.me/">
@@ -18,11 +17,8 @@
   <link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico">
   <title>列表</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/search.css"> -->
 </head>
-
-<body class=" " style="min-height: 667px;">
+<body style="min-height: 667px;">
   <div class="container with-top-search" style="min-height: 667px;" v-on:touchmove="move">
     <div class="custom-search js-search-bar">
       <form>
@@ -54,11 +50,8 @@
         <ul class="js-list" 
             v-infinite-scroll="getSearchList"
             infinite-scroll-disabled="loading"
-            infinite-scroll-distance="30"
-        >
-          <li class="goods-item"
-              v-for="list in searchList"
-          >
+            infinite-scroll-distance="30">
+          <li class="goods-item" v-for="list in searchList">
             <a :href="'goods.html?id='+list.id">
               <div class="thumb">
                 <img :src="list.img">
@@ -81,5 +74,4 @@
     <div v-show="isShow" @click="toTop" class="go-to-top" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);"></div>
   </div>
 </body>
-
 </html>

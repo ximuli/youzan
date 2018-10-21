@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html class="" lang="zh-cmn-Hans" style="position: static;">
-
+<html lang="zh-Hans" style="position: static;">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="keywords" content="有赞,移动电商服务平台">
@@ -13,17 +12,13 @@
   <link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico">
   <title>购物车</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- <link rel="stylesheet" href="./css/cart_base.css">
-  <link rel="stylesheet" href="./css/cart_trade.css">
-  <link rel="stylesheet" href="./css/cart.css"> -->
   <style>
     [v-cloak] { display: none; }
   </style>
 </head>
-
-<body class=" body-fixed-bottom">
+<body class="body-fixed-bottom">
 <div id="app" v-cloak>
-  <div class="container " style="min-height: 581px;">
+  <div class="container" style="min-height: 581px;">
     <div class="content clearfix js-page-content">
       <div id="cart-container">
         <div>
@@ -38,8 +33,7 @@
                 <a href="javascript:;" 
                    data-type="cart" 
                    class="j-edit-list pull-right c-blue font-size-12 edit-list"
-                   @click="edit(shop, shopIndex)"   
-                >
+                   @click="edit(shop, shopIndex)">
                   {{ shop.editingMsg }}
                 </a>
               </div>
@@ -51,8 +45,7 @@
                       v-for="(good,goodIndex) in shop.goodsList"
                       :key="good.id"
                       @touchstart="start($event, good)"
-                      @touchend="end($event,shopIndex,good,goodIndex)"    
-                  >
+                      @touchend="end($event,shopIndex,good,goodIndex)">
                     <div>
                       <div class="check-container" @click="selectGood(shop,good)">
                         <span class="check" :class="{checked: editingShop ? good.removeChecked : good.checked}"></span>
@@ -95,27 +88,23 @@
             </div>
           </div>
           <div class="js-invalid-goods shop-list">
-            <p class="block invalid-list-title">
-              以下商品无法一起购买
-            </p>
+            <p class="block invalid-list-title">以下商品无法一起购买</p>
             <div class="block block-list-cart block-order border-top-0">
               <ul class="block border-0 invalid-list js-invalid-list">
                 <li class="block-item block-item-cart error">
                   <div index="0">
                     <div class="check-container hide"><span class="check"></span></div>
                     <div class="name-card clearfix">
-                      <a href="https://h5.youzan.com/v2/showcase/goods?alias=36co1k2m80lmu" class="thumb js-goods-link"><img data-src="https://img.yzcdn.cn/upload_files/2017/06/29/FstNOp77JZHQjZIDFd5LlZYE3j_j.jpg!200x200.jpg" class="js-lazy" src="https://img.yzcdn.cn/upload_files/2017/06/29/FstNOp77JZHQjZIDFd5LlZYE3j_j.jpg?imageView2/2/w/200/h/200/q/75/format/webp">
-                        
+                      <a href="javascript:;" class="thumb js-goods-link">
+                          <img src="https://img.yzcdn.cn/upload_files/2017/06/29/FstNOp77JZHQjZIDFd5LlZYE3j_j.jpg?imageView2/2/w/200/h/200/q/75/format/webp">
                       </a>
-                      <div class="detail"><a href="https://h5.youzan.com/v2/showcase/goods?alias=36co1k2m80lmu" class="js-goods-link"><h3 class="title js-ellipsis"><i>国际安徒生奖大奖书系（文学作品系列第二辑 共8册） 国际安徒生奖获奖书系 是经过IBBY各国分会和丛书主编、著名儿童文学理论家方卫平教授层层筛选产生的经典佳作</i></h3></a>
+                      <div class="detail"><a href="javascript:;" class="js-goods-link"><h3 class="title js-ellipsis"><i>国际安徒生奖大奖书系（文学作品系列第二辑 共8册） 国际安徒生奖获奖书系 是经过IBBY各国分会和丛书主编、著名儿童文学理论家方卫平教授层层筛选产生的经典佳作</i></h3></a>
                         <p class="sku ellipsis">
                           下周二发货
                         </p>
                         <div class="num">
                           ×<span class="num-txt">1</span>
-                          
                         </div>
-                        
                       </div>
                       <div class="error-box">商品已售罄</div>
                     </div>
@@ -150,8 +139,7 @@
                       :disabled="!removeLists.length" 
                       class="j-delete-goods btn font-size-14 btn-red" 
                       v-show="editingShop"
-                      @click="removeList"
-                      >
+                      @click="removeList">
                 删除
               </button>
             </div>
@@ -181,12 +169,10 @@
       </button>
     </div>
   </div>
-  <!--遮罩层-->
-  <div style="z-index: 2001; position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0,0,0,.7);"
-       v-show="removePopUp"
-  ></div>
-
+    <!--遮罩层-->
+    <div style="z-index: 2001; position: fixed; width: 100%; height: 100%; top: 0; left: 0; background-color: rgba(0,0,0,.7);"
+       v-show="removePopUp">
+    </div>
 </div>
 </body>
-
 </html>

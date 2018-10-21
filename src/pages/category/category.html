@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js " lang="zh-CN">
-
+<html lang="zh-Hans">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <link rel="dns-prefetch" href="https://dn-kdt-img.qbox.me/">
@@ -18,11 +17,8 @@
   <link rel="shortcut icon" href="https://b.yzcdn.cn/v2/image/yz_fc.ico">
   <title>分类</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <!-- <link rel="stylesheet" href="./css/common.css">
-  <link rel="stylesheet" href="./css/category.css"> -->
 </head>
-
-<body class=" " style="">
+<body>
   <div id="app">
     <div class="container with-bottom-nav" style="min-height: 667px; height: 667px;">
       <div class="custom-search js-search-bar">
@@ -58,8 +54,7 @@
                   v-for="(list,index) in topLists"     
                   :class="{active: index === topIndex}" 
                   :data-cid="list.id"
-                  @click="getSubList(index,list.id)"
-                  >
+                  @click="getSubList(index,list.id)">
                   {{ list.name }}
               </li>
             </ul>
@@ -82,7 +77,7 @@
                           <span class="num">{{ index+1 }}</span>
                         </div>
                         <div class="detail">
-                          <div class="title">{{ list.name }} 这里是开心的推荐内容，请仔细查看有没有你喜欢的哦！</div>
+                          <div class="title">{{ list.name }} 这里是推荐内容，请仔细查看有没有你喜欢的商品哦！</div>
                           <div class="price">￥{{ list.price | currency }}</div>
                           <div class="recommend">
                             <span>推荐值:</span>
@@ -144,26 +139,21 @@
                     v-for="list in subData.brandList"
                     :data-item-id="list.id" 
                     :data-item-name="list.name"
-                    @click="toSearch(list)"
-                >
+                    @click="toSearch(list)">
                   <img :src="list.img" :alt="list.name" class="category-img">
-                  <span class="category-item-name">
-                  {{ list.name }}            </span>
+                  <span class="category-item-name">{{ list.name }}</span>
                 </li>
               </ul>
-              <h3 class="category-title"> 热门分类  </h3>
+              <h3 class="category-title">热门分类</h3>
               <ul class="category-content">
                 <li class="category-item js-category-item" 
                     v-for="list in subData.categoryList"
                     :data-item-id="list.id" 
                     :data-item-name="list.name"
-                    @click="toSearch(list)"
-                >
+                    @click="toSearch(list)">
                   <img :src="list.img" :alt="list.name" class="category-img">
-                  <span class="category-item-name">
-                  {{ list.name }}            </span>
+                  <span class="category-item-name">{{ list.name }}</span>
                 </li>
-                
               </ul>
             </div>                                                                                                                           <!-- 等有值了再做渲染 -->
           </div>
@@ -173,5 +163,4 @@
     <foot></foot>
   </div>
 </body>
-
 </html>

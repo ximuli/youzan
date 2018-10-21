@@ -5,8 +5,7 @@
          v-for="list in lists"
          :key="list.id"
          @click="toEdit(list)"
-         :class="{'address-item-default':list.isDefault}"
-      >
+         :class="{'address-item-default':list.isDefault}">
         <div class="address-title">{{list.name}} {{list.tel}}</div>
         <p>{{list.provinceName}}{{list.cityName}}{{list.districtName}}{{list.address}}</p>
         <span class="address-edit">修改</span>

@@ -7,7 +7,7 @@
             <div class="img" style="background-image: url(https://img.yzcdn.cn/upload_files/no_pic.png?imageView2/2/w/280/h/280/q/75/format/webp);"></div>
           </div>
           <div class="pull-left desc">
-            <p>tonyfree</p>
+            <p>ximuli</p>
           </div>
         </div>
         <div class="order-related">
@@ -91,7 +91,6 @@
     </div>
    </div>
 </template>
-
 
 <style scoped>
   @import './member_base.css';
