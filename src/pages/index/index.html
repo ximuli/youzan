@@ -26,10 +26,9 @@
 
 <body style="min-height: 860px;">
   <div id="app">
-    <div class="container with-bottom-nav" style="min-height: 667px;">
+    <div class="container" style="min-height: 667px;">
       <div class="content">
-        <div class="js-image-swiper
-   custom-image-swiper  custom-image-swiper-single" data-images="1">
+        <div class="custom-image-swiper">
           <swipe :lists="bannerLists" v-if="bannerLists"></swipe>
         </div>
         <div class="section-title">优店推荐</div>
@@ -52,16 +51,13 @@
             </div>
           </div>
         </div>
-        <div class="section-content daily">
-          <ul></ul>
-        </div>
-        <div class="line-block line-block-gray">
+        <div class="line-block">
           <div class="lineblock-title">
             <span class="lineblock-font">最热商品推荐</span>
           </div>
         </div>
-        <div class="hot-goods js-waterfull-wrap">
-          <ul class="js-list js-lazy"
+        <div class="hot-goods">
+          <ul
               v-infinite-scroll="getLists"
               infinite-scroll-disabled="loading"
               infinite-scroll-distance="30">
@@ -81,7 +77,6 @@
           </ul>
           <div class="loading-more" v-show="loading"><span></span></div>
         </div>
-        <div class="js-show-find category-guid" style="display: none;"></div>
       </div>
     </div>
     <foot></foot>

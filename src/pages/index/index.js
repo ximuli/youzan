@@ -1,5 +1,5 @@
 import 'css/common.css'
-import './index.css'
+import './index.scss'
 import Vue from 'vue'
 import axios from 'axios'
 import url from 'js/api.js'
