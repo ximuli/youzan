@@ -20,8 +20,8 @@
 </head>
 <body>
   <div id="app">
-    <div class="container with-bottom-nav" style="min-height: 667px; height: 667px;">
-      <div class="custom-search js-search-bar">
+    <div class="container with-bottom-nav">
+      <div class="custom-search">
         <form>
           <input type="search" class="custom-search-input" autocomplete="off" name="keyword" value="" placeholder="搜索更赞的商品">
           <span class="icon-custom-search"></span>
@@ -46,11 +46,11 @@
         </div>
       </div>
       <div class="search-content" style="display: none;"></div>
-      <div class="content" style="height: 617px;">
+      <div class="content">
         <div class="class-nav">
           <div id="scroll-nav" style="height: 100%;">
             <ul class="nav" id="scroll-nav-content" style="height: 540px; transform: translate3d(0px, 0px, 0px);">
-              <li class="category-name js-category-name"
+              <li class="category-name"
                   v-for="(list,index) in topLists"     
                   :class="{active: index === topIndex}" 
                   :data-cid="list.id"
