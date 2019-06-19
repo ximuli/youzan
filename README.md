@@ -1,13 +1,5 @@
 # vue 重构移动端有赞商城
 
-## 效果演示
-
-[点此链接预览](http://blog.guozisha.com/youzan/dist/)  （请用 Chrome 手机模式预览）
-
-移动端请扫描下方二维码：
-
-![youzan](http://wx3.sinaimg.cn/mw690/d1b5fd6bgy1fvipu4wm64j208c08c0t3.jpg)
-
 ## 技术栈
 
 vue、axios、vue-router、vuex、webpack、vue-cli、mint UI、ES6
@@ -18,4 +10,14 @@ vue、axios、vue-router、vuex、webpack、vue-cli、mint UI、ES6
 * 使用rap2 接口管理平台模拟生成前端所需数据；
 * axios 负责异步请求操作；vue-router、vuex管理地址页面的路由和状态；
 * 通过这个项目我熟悉了vue 的基本语法以及生命周期等特性，进一步学习了 vue-router、vuex 的使用方法。
+
+# 未来的计划
+
+1. 重新开始，从零开始
+2. 使用 Vue 2.6+ 开发，为切换到 Vue 3.0 提前做准备，Vue 全家桶
+3. 使用最新的 Vue CLI 3.x
+4. 使用 CSS 预处理器 SCSS
+5. 使用 Easy Mock 提供数据
+6. 移动端适配采用 flexible.js 方案或 vw 方案（未定）
+7. 想到再加
 
