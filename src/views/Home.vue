@@ -41,17 +41,23 @@
         </ul>
       </div>
     </div>
+    <Foot />
   </div>
 </template>
 
 <script>
+import Foot from "./Foot";
+
 // @ is an alias to /src
 import Vue from "vue";
 import { Swipe, SwipeItem } from "vant";
 Vue.use(Swipe).use(SwipeItem);
 
 export default {
-  name: "home"
+  name: "home",
+  components: {
+    Foot
+  }
 };
 </script>
 
@@ -72,6 +78,7 @@ export default {
     > .recommend-content {
       display: flex;
       .shop-item {
+        flex-grow: 1;
         > a {
           img {
             width: 100%;
