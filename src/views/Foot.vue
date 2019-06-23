@@ -1,10 +1,16 @@
 <template>
   <div class="foot">
     <ul class="foot-list">
-      <li class="active"><i class="icon icon-home"></i>有赞</li>
-      <li><i class="icon icon-category"></i>分类</li>
-      <li><i class="icon icon-cart"></i>购物车</li>
-      <li><i class="icon icon-user"></i>我</li>
+      <li @click="$router.push('/')" class="active">
+        <i class="icon icon-home"></i>有赞
+      </li>
+      <li @click="$router.push('/category')">
+        <i class="icon icon-category"></i>分类
+      </li>
+      <li @click="$router.push('/cart')">
+        <i class="icon icon-cart"></i>购物车
+      </li>
+      <li @click="$router.push('/member')"><i class="icon icon-user"></i>我</li>
     </ul>
   </div>
 </template>
