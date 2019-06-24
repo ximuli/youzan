@@ -41,7 +41,7 @@
         </ul>
       </div>
     </div>
-    <Foot />
+    <Foot selected="home" />
   </div>
 </template>
 

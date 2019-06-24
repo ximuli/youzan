@@ -1,16 +1,15 @@
 <template>
   <div class="foot">
     <ul class="foot-list">
-      <li @click="$router.push('/')" class="active">
-        <i class="icon icon-home"></i>有赞
+      <li
+        v-for="item in navList"
+        :key="item.icon"
+        @click="$router.push(`/${item.icon}`)"
+        :class="{ active: selected === item.icon }"
+      >
+        <i :class="`icon icon-${item.icon}`"></i>
+        {{ item.name }}
       </li>
-      <li @click="$router.push('/category')">
-        <i class="icon icon-category"></i>分类
-      </li>
-      <li @click="$router.push('/cart')">
-        <i class="icon icon-cart"></i>购物车
-      </li>
-      <li @click="$router.push('/member')"><i class="icon icon-user"></i>我</li>
     </ul>
   </div>
 </template>
@@ -18,13 +17,26 @@
 <script>
 export default {
   name: "foot",
+  props: {
+    selected: {
+      type: String,
+      required: true
+    }
+  },
   data() {
-    return {};
+    return {
+      navList: [
+        { name: "有赞", icon: "home" },
+        { name: "分类", icon: "category" },
+        { name: "购物车", icon: "cart" },
+        { name: "我", icon: "member" }
+      ]
+    };
   }
 };
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 .foot {
   position: fixed;
   height: 50px;
