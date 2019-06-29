@@ -53,6 +53,8 @@ export default {
 <style lang="scss" scoped>
 .cart {
   .check {
+    display: inline-block;
+    vertical-align: top;
     width: 18px;
     height: 18px;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACQAAAAkCAMAAADW3miqAAAAVFBMVEUAAACampqioqKZmZmampqampqampqampqcnJyqqqqampqampqampqampqbm5v///+ZmZn5+fn09PTw8PDm5ubR0dHPz8/Jycm7u7uxsbGdnZ3d3d2KAK0RAAAAD3RSTlMAvRDz2cWQUTsDXdaioVxmAFd6AAAA6klEQVQ4y42UWRaEIAwEEfeVxn25/z2H6OhTB5jUdz9SBBJxRzZ1EIVhFNSNFHbSADeC1BLJYryIs1ckT0AsQ99p3fXDAiLJHzJUaZ20utDTSjXlLVMCmFv1oJ0BlFcqp3NG9cNIZ50VyWdTFjby+t7rPMd+1nHH2PgoB8Yr3nsIrK0r1K4AddVYT8rJZNzN9QFod0gDkKIAFuVhAQpRAYMvNAAVKfW+UE9SEdD5Qh0QiXD39pqHrBCrHE+8/t+CmtPMhvUsnAdmfRXOp2N9X84gsEaKM5ycMWcvDP7q4S8xQhbVsQ6r4iHzAbrdPVnePehPAAAAAElFTkSuQmCC);
@@ -82,6 +84,16 @@ export default {
         .edit-btn {
           font-size: 12px;
           color: #38f;
+        }
+      }
+      .shop-content {
+        .good {
+          display: flex;
+          .check {
+            margin: 0 10px;
+            height: 60px;
+            padding: 20px 0;
+          }
         }
       }
     }
