@@ -179,6 +179,18 @@
         <button class="btn invalid-btn">清空失效商品</button>
       </div>
     </div>
+    <div class="bottom-bar">
+      <div class="info">你需要分开结算每个店铺的商品哦~</div>
+      <div class="option">
+        <div class="selectAll">
+          <div class="check"></div>
+          全选
+        </div>
+        <div class="option-delete">
+          删除
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -349,6 +361,39 @@ export default {
         font-size: 14px;
         padding: 6px 44px;
         border-color: #f60;
+      }
+    }
+  }
+  .bottom-bar {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    .info {
+      background-color: #fff7cc;
+      width: 100%;
+      line-height: 35px;
+      height: 35px;
+      text-align: center;
+      color: #f60;
+      font-size: 12px;
+    }
+    .option {
+      height: 50px;
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .selectAll {
+        color: #333;
+        .check {
+          margin-left: 10px;
+          margin-right: 10px;
+        }
+      }
+      .option-delete {
+        background-color: #f1f1f1;
+        color: #999;
       }
     }
   }
