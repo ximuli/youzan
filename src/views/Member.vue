@@ -31,6 +31,9 @@
         <p>{{ list }}</p>
       </div>
     </div>
+    <div class="copyright">
+      有赞提供技术支持
+    </div>
     <Foot selected="member"></Foot>
   </div>
 </template>
@@ -179,6 +182,15 @@ $border-color: #e5e5e5;
         background-position: 4px -305px;
       }
     }
+  }
+  .copyright {
+    text-align: center;
+    padding: 50px 0 20px 0;
+    font-size: 12px;
+    color: #bfbfc3;
+    background: url("data:image/png;base64,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")
+      no-repeat center 17px;
+    background-size: 110px 30px;
   }
 }
 </style>
