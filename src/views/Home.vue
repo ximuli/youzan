@@ -1,7 +1,16 @@
 <template>
   <div class="home">
-    <van-swipe :autoplay="3000" indicator-color="blue">
-      <van-swipe-item>
+    <van-swipe :autoplay="3000" indicator-color="blue" :height="180">
+      <template v-if="bannerList.length > 0">
+        <van-swipe-item
+          v-for="(item, index) in bannerList"
+          :key="index"
+          @click="$router.push(item.clickUrl)"
+        >
+          <img :src="item.img" alt="" />
+        </van-swipe-item>
+      </template>
+      <van-swipe-item v-else>
         <img src="./../assets/imgs/banner.jpg" alt="" />
       </van-swipe-item>
     </van-swipe>
@@ -47,16 +56,30 @@
 
 <script>
 import Foot from "./Foot";
-
-// @ is an alias to /src
+import url from "./../request/api.js";
+import fetch from "./../request/fetch.js";
 import Vue from "vue";
 import { Swipe, SwipeItem } from "vant";
+
 Vue.use(Swipe).use(SwipeItem);
 
 export default {
   name: "home",
   components: {
     Foot
+  },
+  data() {
+    return {
+      bannerList: []
+    };
+  },
+  mounted() {
+    console.log(111222);
+    fetch.get(url.bannerList).then(res => {
+      console.log("res");
+      console.log(res.data);
+      this.bannerList = res.data.lists;
+    });
   }
 };
 </script>
