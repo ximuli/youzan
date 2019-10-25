@@ -15,7 +15,7 @@ vue、axios、vue-router、vuex、webpack、vue-cli、Vant UI、ES6
 # 未来的计划
 
 1. 从零开始
-2. 使用 yarn
+2. ~~使用 yarn~~ 
 3. 使用 Vue 2.6+ 开发，为切换到 Vue 3.0 提前做准备，Vue 全家桶
 4. 使用 Vue CLI 3.x
 5. 使用 CSS 预处理器 SCSS
@@ -24,3 +24,4 @@ vue、axios、vue-router、vuex、webpack、vue-cli、Vant UI、ES6
 8. 相关技术学习整理成文档随项目一起发布，在根目录 README 中做跳转链接
 9. 引入 TypeScript
 10. 想到再加
+
