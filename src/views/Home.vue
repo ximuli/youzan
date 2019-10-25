@@ -74,10 +74,7 @@ export default {
     };
   },
   mounted() {
-    console.log(111222);
     fetch.get(url.bannerList).then(res => {
-      console.log("res");
-      console.log(res.data);
       this.bannerList = res.data.lists;
     });
   }
